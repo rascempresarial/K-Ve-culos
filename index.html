@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>k+ Veículos · Seminovos com procedência em Santa Maria-DF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0d;
+    --bg2:#121215;
+    --card:#17171b;
+    --card-hi:#1f1f25;
+    --line:rgba(255,255,255,.09);
+    --line-2:rgba(255,255,255,.16);
+    --fg:#f5f5f4;
+    --muted:#9b9ba2;
+    --muted-2:#6f6f77;
+    --red:#ff3b30;
+    --red-deep:#d61d12;
+    --red-glow:rgba(255,59,48,.35);
+    --maxw:1280px;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'Barlow',system-ui,sans-serif;
+    font-size:18px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.display{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-.02em;line-height:.98;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .red{color:var(--red)}
+  .stripe{color:var(--red)}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;
+    letter-spacing:.02em;font-size:15px;line-height:1;
+    padding:16px 26px;border-radius:10px;cursor:pointer;border:0;
+    transition:transform .15s ease, background .2s ease, box-shadow .2s ease;
+    white-space:nowrap;
+  }
+  .btn svg{width:18px;height:18px;flex:none}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 8px 30px -10px var(--red-glow)}
+  .btn-red:hover{background:#ff2a1e;transform:translateY(-2px);box-shadow:0 14px 40px -10px var(--red-glow)}
+  .btn-ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line-2)}
+  .btn-ghost:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
+  .btn-dark{background:#000;color:#fff;border:1.5px solid var(--line-2)}
+  .btn-dark:hover{border-color:var(--red)}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(11,11,13,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-family:'Archivo',sans-serif;font-weight:900;font-size:28px;letter-spacing:-.04em;display:flex;align-items:baseline;gap:2px;text-transform:lowercase}
+  .logo .plus{color:var(--red)}
+  .logo .vk{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-left:10px;align-self:center}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--fg)}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  @media(max-width:880px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:72px 0 0;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-30%;right:-10%;width:60%;height:120%;
+    background:radial-gradient(closest-side,var(--red-glow),transparent 70%);opacity:.5;pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+  .eyebrow::before{content:"";width:34px;height:2px;background:var(--red)}
+  .hero h1{font-size:clamp(38px,4.2vw,62px)}
+  .hero h1 em{font-style:normal;color:var(--red);display:inline-block}
+  .hero p.lead{font-size:20px;color:var(--muted);max-width:36ch;margin:28px 0 36px;line-height:1.5}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-media{position:relative}
+  .hero-media img{width:100%;height:440px;object-fit:cover;border-radius:16px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+  .hero-tag{position:absolute;left:-14px;bottom:26px;background:var(--red);color:#fff;
+    font-family:'Archivo';font-weight:900;text-transform:uppercase;font-size:14px;letter-spacing:.04em;
+    padding:12px 18px;border-radius:8px;transform:rotate(-3deg);box-shadow:0 14px 30px -10px var(--red-glow)}
+  @media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero-media img{height:340px}}
+
+  /* ---------- ticker / trust bar ---------- */
+  .trust{margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+  .trust-item{padding:34px 32px;display:flex;align-items:center;gap:18px;border-right:1px solid var(--line)}
+  .trust-item:last-child{border-right:0}
+  .trust-item .ti{width:46px;height:46px;border-radius:10px;background:rgba(255,59,48,.12);display:grid;place-items:center;flex:none}
+  .trust-item .ti svg{width:24px;height:24px;stroke:var(--red)}
+  .trust-item b{display:block;font-family:'Archivo';font-weight:800;text-transform:uppercase;font-size:16px;letter-spacing:.01em}
+  .trust-item span{font-size:14.5px;color:var(--muted);line-height:1.35}
+  @media(max-width:760px){.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line)}}
+
+  /* ---------- sections ---------- */
+  section.block{padding:110px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:52px}
+  .sec-head .kicker{font-family:'Archivo';font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .sec-head h2{font-size:clamp(34px,4vw,58px)}
+  .sec-head p{color:var(--muted);max-width:40ch;font-size:17px}
+
+  /* ---------- inventory ---------- */
+  .grid-cars{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  @media(max-width:1080px){.grid-cars{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid-cars{grid-template-columns:1fr}}
+  .car{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    display:flex;flex-direction:column;transition:border-color .25s,transform .25s,box-shadow .25s}
+  .car:hover{border-color:var(--line-2);transform:translateY(-5px);box-shadow:0 30px 50px -28px rgba(0,0,0,.9)}
+  .car-media{position:relative}
+  .car-media img{width:100%;height:210px;object-fit:cover;display:block}
+  .car-badge{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);
+    border:1px solid var(--line-2);color:#fff;font-family:'Archivo';font-weight:800;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:6px}
+  .ipva-tag{position:absolute;top:14px;right:14px;background:var(--red);color:#fff;font-family:'Archivo';
+    font-weight:800;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:7px 10px;border-radius:6px;
+    display:flex;align-items:center;gap:5px;box-shadow:0 8px 20px -6px var(--red-glow)}
+  .ipva-tag svg{width:13px;height:13px;stroke:#fff;stroke-width:2.5}
+  .car-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .car h3{font-size:21px;line-height:1.05;margin-bottom:4px}
+  .car .ver{font-size:14px;color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0;margin-bottom:16px}
+  .specs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .specs span{font-size:12.5px;color:var(--muted);background:var(--bg2);border:1px solid var(--line);
+    padding:6px 10px;border-radius:6px;font-weight:500}
+  .price-row{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .price-row .pl{font-size:12px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:3px}
+  .price-row .pv{font-family:'Archivo';font-weight:900;font-size:27px;letter-spacing:-.01em}
+  .price-row .pm{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.3}
+  .price-row .pm b{color:var(--fg);font-family:'Archivo';font-size:15px}
+  .car .btn{width:100%;justify-content:center}
+
+  /* ---------- differentials ---------- */
+  .diffs{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .grid-diff{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .diff{padding:44px 34px;border-right:1px solid var(--line)}
+  .diff:last-child{border-right:0}
+  .diff .num{font-family:'Archivo';font-weight:900;font-size:15px;color:var(--red);letter-spacing:.06em;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  .diff .num::after{content:"";height:1px;flex:1;background:var(--line)}
+  .diff h3{font-size:24px;margin-bottom:12px;line-height:1.02}
+  .diff p{font-size:15.5px;color:var(--muted);line-height:1.5}
+  @media(max-width:960px){.grid-diff{grid-template-columns:repeat(2,1fr)}.diff:nth-child(2){border-right:0}.diff:nth-child(1),.diff:nth-child(2){border-bottom:1px solid var(--line)}}
+  @media(max-width:560px){.grid-diff{grid-template-columns:1fr}.diff{border-right:0;border-bottom:1px solid var(--line)}.diff:last-child{border-bottom:0}}
+
+  /* ---------- lead / contact ---------- */
+  .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .lead-copy h2{font-size:clamp(34px,4.2vw,60px);margin-bottom:22px}
+  .lead-copy h2 em{font-style:normal;color:var(--red)}
+  .lead-copy p{color:var(--muted);font-size:18px;max-width:42ch;margin-bottom:34px}
+  .contact-list{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+  .contact-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+  .contact-item .ci{width:42px;height:42px;border-radius:9px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;flex:none}
+  .contact-item .ci svg{width:20px;height:20px;stroke:var(--red)}
+  .contact-item .cl{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-2);font-weight:600}
+  .contact-item .cv{font-family:'Archivo';font-weight:700;font-size:18px}
+  .contact-item a.cv:hover{color:var(--red)}
+
+  form.lead{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:36px}
+  form.lead .fh{font-family:'Archivo';font-weight:900;text-transform:uppercase;font-size:22px;margin-bottom:6px}
+  form.lead .fs{color:var(--muted);font-size:15px;margin-bottom:26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--muted);margin-bottom:9px}
+  .field input,.field select,.field textarea{
+    width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;
+    color:var(--fg);font-family:'Barlow';font-size:16px;padding:14px 15px;transition:border-color .2s}
+  .field textarea{resize:vertical;min-height:84px}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red)}
+  .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239b9ba2' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:40px}
+  form.lead .btn{width:100%;justify-content:center;margin-top:8px;font-size:16px;padding:18px}
+  form.lead .legal{font-size:12.5px;color:var(--muted-2);text-align:center;margin-top:14px;line-height:1.4}
+  @media(max-width:900px){.lead-grid{grid-template-columns:1fr;gap:44px}}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:54px 0 40px;background:var(--bg2)}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+  .foot-top p{color:var(--muted);font-size:15px;max-width:34ch;margin-top:14px}
+  .foot-links{display:flex;gap:54px;flex-wrap:wrap}
+  .foot-col h5{font-family:'Archivo';font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:.08em;margin-bottom:16px;color:var(--muted)}
+  .foot-col a,.foot-col span{display:block;font-size:15px;color:var(--fg);margin-bottom:10px}
+  .foot-col a:hover{color:var(--red)}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted-2);font-size:13.5px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* floating whatsapp */
+  .fab{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;
+    background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(37,211,102,.5);
+    transition:transform .2s}
+  .fab:hover{transform:scale(1.08)}
+  .fab svg{width:32px;height:32px;fill:#fff}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">k<span class="plus">+</span><span class="vk">Veículos</span></a>
+    <nav class="nav-links">
+      <a href="#estoque">Estoque</a>
+      <a href="#diferenciais">Por que a k+</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://wa.me/5561993644599?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20k%2B%20Ve%C3%ADculos." target="_blank" rel="noopener" class="btn btn-red">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text reveal">
+      <span class="eyebrow">Seminovos · Santa Maria — DF</span>
+      <h1>Seminovos com<br><em>procedência</em>.</h1>
+      <p class="lead">Seminovos selecionados, revisados e com garantia. A gente pega o seu usado como entrada e faz a simulação do financiamento na hora.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5561993644599?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20seminovos%20da%20k%2B." target="_blank" rel="noopener" class="btn btn-red">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Falar agora
+        </a>
+        <a href="#estoque" class="btn btn-ghost">Ver estoque</a>
+      </div>
+    </div>
+    <div class="hero-media reveal">
+      <img src="imagens/hero.webp" alt="Carro em destaque k+ Veículos" loading="lazy">
+      <div class="hero-tag">Pegamos seu usado na troca</div>
+    </div>
+  </div>
+
+  <!-- trust bar -->
+  <div class="trust">
+    <div class="wrap trust-grid">
+      <div class="trust-item">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8-8 11-4.5-3-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div><b>Procedência garantida</b><span>Histórico e revisão conferidos</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l3-9h12l3 9"/><path d="M3 12v6h18v-6"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg></div>
+        <div><b>Seu usado como entrada</b><span>Avaliação justa na hora</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h2m4 0h2"/></svg></div>
+        <div><b>Simulação na hora</b><span>Financiamento sem enrolação</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESTOQUE ============ -->
+<section class="block" id="estoque">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Estoque em destaque</div>
+        <h2>Modelos prontos<br>pra rodar.</h2>
+      </div>
+      <p>Seleção atualizada da semana. Quer ver fotos e condições de algum? Chama no WhatsApp que a gente manda tudo.</p>
+    </div>
+
+    <div class="grid-cars">
+      <!-- car 1 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/fox.webp" alt="VW Fox Rock in Rio 2014" loading="lazy">
+          <span class="car-badge">2014</span>
+        </div>
+        <div class="car-body">
+          <h3>VW Fox</h3>
+          <div class="ver">Rock in Rio 1.0</div>
+          <div class="specs"><span>220.000 km</span><span>Hatch</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 43.900</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20VW%20Fox%20Rock%20in%20Rio%202014%20(R%24%2043.900)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 2 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/palio-2013.webp" alt="Fiat Palio 1.0 Completo 2013" loading="lazy">
+          <span class="car-badge">2013</span>
+        </div>
+        <div class="car-body">
+          <h3>Fiat Palio</h3>
+          <div class="ver">1.0 Completo (menos ar)</div>
+          <div class="specs"><span>200.000 km</span><span>Hatch</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 33.900</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20Fiat%20Palio%201.0%20Completo%202013%20(R%24%2033.900)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 3 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/blazer.webp" alt="Chevrolet Blazer 2.4 Flex 2009" loading="lazy">
+          <span class="car-badge">2009</span>
+        </div>
+        <div class="car-body">
+          <h3>Chevrolet Blazer</h3>
+          <div class="ver">2.4 Flex</div>
+          <div class="specs"><span>122.000 km</span><span>Flex</span><span>SUV</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 45.000</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20na%20Chevrolet%20Blazer%202.4%20Flex%202009%20(R%24%2045.000)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 4 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/bmw-320i.webp" alt="BMW 320i 2.0 Turbo 2013" loading="lazy">
+          <span class="car-badge">2013</span>
+        </div>
+        <div class="car-body">
+          <h3>BMW 320i</h3>
+          <div class="ver">2.0 Turbo</div>
+          <div class="specs"><span>161.000 km</span><span>Sedan</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 85.900</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20na%20BMW%20320i%202.0%20Turbo%202013%20(R%24%2085.900)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 5 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/palio-2016.webp" alt="Fiat Palio 1.0 Completo 2016" loading="lazy">
+          <span class="car-badge">2016</span>
+        </div>
+        <div class="car-body">
+          <h3>Fiat Palio</h3>
+          <div class="ver">1.0 Completo</div>
+          <div class="specs"><span>200.000 km</span><span>Hatch</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 39.000</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20Fiat%20Palio%201.0%20Completo%202016%20(R%24%2039.000)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 6 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/uno.webp" alt="Fiat Uno 1.0 Básico 2011" loading="lazy">
+          <span class="car-badge">2011</span>
+        </div>
+        <div class="car-body">
+          <h3>Fiat Uno</h3>
+          <div class="ver">1.0 Básico</div>
+          <div class="specs"><span>171.000 km</span><span>Flex</span><span>Hatch</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 27.900</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20Fiat%20Uno%201.0%20B%C3%A1sico%202011%20(R%24%2027.900)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 7 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/hb20.webp" alt="Hyundai HB20 1.0 Completo 2015" loading="lazy">
+          <span class="car-badge">2015</span>
+        </div>
+        <div class="car-body">
+          <h3>Hyundai HB20</h3>
+          <div class="ver">1.0 Completo</div>
+          <div class="specs"><span>156.000 km</span><span>Hatch</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 47.000</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20Hyundai%20HB20%201.0%20Completo%202015%20(R%24%2047.000)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 8 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/civic-2000.webp" alt="Honda Civic LX 1.6 2000" loading="lazy">
+          <span class="car-badge">2000</span>
+        </div>
+        <div class="car-body">
+          <h3>Honda Civic</h3>
+          <div class="ver">LX 1.6 Automático</div>
+          <div class="specs"><span>230.000 km</span><span>Flex</span><span>Sedan</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 22.900</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20Honda%20Civic%20LX%201.6%20Autom%C3%A1tico%202000%20(R%24%2022.900)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 9 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/amarok.webp" alt="VW Amarok 2.0 Biturbo Diesel 2015" loading="lazy">
+          <span class="car-badge">2015/2015</span>
+          <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
+        </div>
+        <div class="car-body">
+          <h3>VW Amarok</h3>
+          <div class="ver">2.0 Biturbo Diesel</div>
+          <div class="specs"><span>236.000 km</span><span>Manual</span><span>Diesel</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 76.000</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20na%20VW%20Amarok%202.0%20Biturbo%20Diesel%202015%20(R%24%2076.000)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 10 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/golf.webp" alt="VW Golf 1.0 TSI Turbo 2017" loading="lazy">
+          <span class="car-badge">2017</span>
+          <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
+        </div>
+        <div class="car-body">
+          <h3>VW Golf</h3>
+          <div class="ver">1.0 TSI Turbo</div>
+          <div class="specs"><span>Manual</span><span>Hatch</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 71.000</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20VW%20Golf%201.0%20TSI%20Turbo%202017%20(R%24%2071.000)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+
+      <!-- car 11 -->
+      <article class="car reveal">
+        <div class="car-media">
+          <img src="imagens/jetta.webp" alt="VW Jetta 2.0 Aspirado 2011" loading="lazy">
+          <span class="car-badge">2011/2012</span>
+        </div>
+        <div class="car-body">
+          <h3>VW Jetta</h3>
+          <div class="ver">2.0 Aspirado</div>
+          <div class="specs"><span>22.000 km</span><span>Manual</span><span>Sedan</span></div>
+          <div class="price-row">
+            <div><div class="pl">À vista</div><div class="pv">R$ 45.000</div></div>
+          </div>
+          <a href="https://wa.me/5561993644599?text=Tenho%20interesse%20no%20VW%20Jetta%202.0%20Aspirado%202011%20(R%24%2045.000)." target="_blank" rel="noopener" class="btn btn-dark">Tenho interesse</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="diffs" id="diferenciais">
+  <div class="wrap block" style="padding:96px 0">
+    <div class="sec-head reveal" style="margin-bottom:46px">
+      <div>
+        <div class="kicker">Por que comprar na k+</div>
+        <h2>Sem pegadinha.<br>Do jeito certo.</h2>
+      </div>
+      <p>A gente cuida da parte chata pra você sair de carro novo com a cabeça tranquila.</p>
+    </div>
+    <div class="grid-diff reveal">
+      <div class="diff">
+        <div class="num">01</div>
+        <h3>Procedência</h3>
+        <p>Todo carro passa por checagem de histórico e revisão antes de entrar na loja.</p>
+      </div>
+      <div class="diff">
+        <div class="num">02</div>
+        <h3>Garantia</h3>
+        <p>Você leva o seminovo com garantia e a segurança de quem comprou de loja.</p>
+      </div>
+      <div class="diff">
+        <div class="num">03</div>
+        <h3>Usado na troca</h3>
+        <p>Avaliamos o seu carro e usamos como entrada — menos burocracia, mais negócio.</p>
+      </div>
+      <div class="diff">
+        <div class="num">04</div>
+        <h3>Simulação na hora</h3>
+        <p>Financiamento simulado na hora, com as melhores condições do mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEAD / CONTATO ============ -->
+<section class="block" id="contato">
+  <div class="wrap lead-grid">
+    <div class="lead-copy reveal">
+      <div class="kicker" style="font-family:'Archivo';font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px">Fale com a gente</div>
+      <h2>Bora fechar<br>esse <em>negócio?</em></h2>
+      <p>Deixa seu contato que a gente retorna rapidinho com fotos, condições e a simulação do seu financiamento.</p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="cl">WhatsApp / Telefone</div>
+            <div style="display:flex;flex-direction:column;gap:3px">
+              <a class="cv" href="https://wa.me/5561993644599" target="_blank" rel="noopener">(61) 99364-4599</a>
+              <a class="cv" href="https://wa.me/5561995969228" target="_blank" rel="noopener">(61) 99596-9228</a>
+              <a class="cv" href="https://wa.me/5561983150771" target="_blank" rel="noopener">(61) 98315-0771</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="cl">Localização</div><span class="cv" style="text-transform:none">Santa Maria — DF</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+          <div><div class="cl">Instagram</div><a class="cv" href="https://instagram.com/kve_iculos" target="_blank" rel="noopener" style="text-transform:none">@kve_iculos</a></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="lead reveal" id="leadForm">
+      <div class="fh">Receba uma proposta</div>
+      <div class="fs">Resposta rápida pelo WhatsApp.</div>
+      <div class="field">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required>
+      </div>
+      <div class="field">
+        <label for="tel">WhatsApp</label>
+        <input type="tel" id="tel" name="tel" placeholder="(61) 9xxxx-xxxx" required>
+      </div>
+      <div class="field">
+        <label for="interesse">Carro de interesse</label>
+        <select id="interesse" name="interesse">
+          <option value="">Selecione um modelo</option>
+          <option>Jeep Compass</option>
+          <option>Honda Civic</option>
+          <option>Toyota Corolla</option>
+          <option>VW Golf GTI</option>
+          <option>Hyundai HB20</option>
+          <option>Chevrolet Tracker</option>
+          <option>Outro / ainda decidindo</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="usado">Tem um usado na troca? (opcional)</label>
+        <input type="text" id="usado" name="usado" placeholder="Ex: Onix 2018, 70.000 km">
+      </div>
+      <button type="submit" class="btn btn-red">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Enviar pelo WhatsApp
+      </button>
+      <div class="legal">Ao enviar, você abre uma conversa no WhatsApp com seus dados já preenchidos.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="#top" class="logo" style="font-size:32px">k<span class="plus">+</span><span class="vk">Veículos</span></a>
+        <p>Seminovos com procedência em Santa Maria — DF. A gente pega seu usado na troca e faz a simulação na hora.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Navegar</h5>
+          <a href="#estoque">Estoque</a>
+          <a href="#diferenciais">Por que a k+</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="https://wa.me/5561993644599" target="_blank" rel="noopener">(61) 99364-4599</a>
+          <a href="https://wa.me/5561995969228" target="_blank" rel="noopener">(61) 99596-9228</a>
+          <a href="https://wa.me/5561983150771" target="_blank" rel="noopener">(61) 98315-0771</a>
+          <a href="https://instagram.com/kve_iculos" target="_blank" rel="noopener">@kve_iculos</a>
+          <span>Santa Maria — DF</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 k+ Veículos. Todos os direitos reservados.</span>
+      <span>Fotos e valores reais · consulte disponibilidade.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- floating whatsapp -->
+<a href="https://wa.me/5561993644599?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20k%2B%20Ve%C3%ADculos." target="_blank" rel="noopener" class="fab" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+  // reveal on scroll (with safety fallbacks so content is never stuck hidden)
+  const reveals=document.querySelectorAll('.reveal');
+  // hard reveal: bypass the transition so content can never get stuck invisible
+  const forceShow=(el)=>{el.style.transition='none';el.style.opacity='1';el.style.transform='none';el.classList.add('in');};
+  const showAll=()=>reveals.forEach(forceShow);
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+    reveals.forEach(el=>io.observe(el));
+    // safety fallback: if the entrance transition hasn't shown things, force them visible
+    setTimeout(showAll,600);
+  }else{showAll();}
+
+  // lead form -> whatsapp
+  document.getElementById('leadForm').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    const nome=document.getElementById('nome').value.trim();
+    const tel=document.getElementById('tel').value.trim();
+    const interesse=document.getElementById('interesse').value;
+    const usado=document.getElementById('usado').value.trim();
+    let msg=`Olá, k+ Veículos! Meu nome é ${nome||'(sem nome)'}.`;
+    if(interesse) msg+=` Tenho interesse no ${interesse}.`;
+    if(usado) msg+=` Tenho um ${usado} para dar na troca.`;
+    if(tel) msg+=` Meu WhatsApp: ${tel}.`;
+    const url='https://wa.me/5561993644599?text='+encodeURIComponent(msg);
+    window.open(url,'_blank');
+  });
+</script>
+</body>
+</html>
