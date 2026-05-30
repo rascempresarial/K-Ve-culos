@@ -198,6 +198,30 @@
     transition:transform .2s}
   .fab:hover{transform:scale(1.08)}
   .fab svg{width:32px;height:32px;fill:#fff}
+
+  /* ---------- swipe hint (mobile only) ---------- */
+  .swipe-hint{display:none;align-items:center;justify-content:center;gap:8px;color:var(--muted);
+    font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:-10px 0 16px}
+
+  /* ---------- mobile ---------- */
+  @media(max-width:640px){
+    html,body{overflow-x:hidden;max-width:100%}
+    .wrap{padding:0 20px}
+    section.block{padding:64px 0}
+    .hero{padding:44px 0 0}
+    .sec-head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:30px}
+    .sec-head p{max-width:none}
+    /* carros viram carrossel deslizável */
+    .grid-cars{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;
+      padding:4px 20px 18px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .grid-cars::-webkit-scrollbar{display:none}
+    .car{flex:0 0 80%;scroll-snap-align:center}
+    .car-media img{height:200px}
+    .swipe-hint{display:flex}
+    .lead-grid{gap:30px}
+    form.lead{padding:24px 18px}
+    .trust-item{padding:24px 22px}
+  }
 </style>
 </head>
 <body>
@@ -273,6 +297,7 @@
       <p>Seleção atualizada da semana. Quer ver fotos e condições de algum? Chama no WhatsApp que a gente manda tudo.</p>
     </div>
 
+    <p class="swipe-hint">← arraste para ver mais →</p>
     <div class="grid-cars">
       <!-- car 1 -->
       <article class="car reveal">
