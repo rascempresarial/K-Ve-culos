@@ -148,7 +148,7 @@
     "carroceria": "SUV",
     "valor": "R$ 159.900",
     "ipva_pago": false,
-    "vendido": false,
+    "vendido": true,
     "imagem": "imagens/hrv.webp"
   },
   {
