@@ -255,5 +255,20 @@
     "ipva_pago": false,
     "vendido": false,
     "imagem": "imagens/voyage.webp"
+  },
+  {
+    "id": "dc4f6c6a-a442-4ef0-9f3a-15edc94e8949",
+    "modelo": "Honda HRV",
+    "versao": "2.0",
+    "ano": "2025",
+    "km": "50.000 km",
+    "cambio": "Automático",
+    "combustivel": "Flex",
+    "carroceria": "SUV",
+    "valor": "R$ 1100000",
+    "ipva_pago": true,
+    "ipva_ano": "2026",
+    "vendido": false,
+    "imagem": "imagens/honda-hrv-2025.webp"
   }
 ]
