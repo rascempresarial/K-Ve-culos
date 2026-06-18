@@ -213,7 +213,7 @@
     "combustivel": "Diesel",
     "carroceria": "Picape",
     "valor": "R$ 110.000",
-    "ipva_pago": true,
+    "ipva_pago": false,
     "vendido": false,
     "imagem": "imagens/s10.webp"
   },
