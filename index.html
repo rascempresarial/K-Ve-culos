@@ -65,6 +65,10 @@
   .logo{font-family:'Archivo',sans-serif;font-weight:900;font-size:28px;letter-spacing:-.04em;display:flex;align-items:baseline;gap:2px;text-transform:lowercase}
   .logo .plus{color:var(--red)}
   .logo .vk{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-left:10px;align-self:center}
+  .logo-img{display:inline-flex;align-items:center}
+  .logo-img img{height:44px;width:auto;display:block}
+  footer .logo-img img{height:54px}
+  @media(max-width:640px){.logo-img img{height:38px}}
   .nav-links{display:flex;gap:34px;align-items:center}
   .nav-links a{font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);transition:color .2s}
   .nav-links a:hover{color:var(--fg)}
@@ -233,7 +237,7 @@
 <!-- ============ HEADER ============ -->
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo">k<span class="plus">+</span><span class="vk">Veículos</span></a>
+    <a href="#top" class="logo-img" aria-label="k+ Veículos"><img src="imagens/logo-kmais.webp" alt="k+ Veículos Multimarcas"></a>
     <nav class="nav-links">
       <a href="#estoque">Estoque</a>
       <a href="#diferenciais">Por que a k+</a>
@@ -741,7 +745,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <a href="#top" class="logo" style="font-size:32px">k<span class="plus">+</span><span class="vk">Veículos</span></a>
+        <a href="#top" class="logo-img" aria-label="k+ Veículos"><img src="imagens/logo-kmais.webp" alt="k+ Veículos Multimarcas"></a>
         <p>Seminovos com procedência em Santa Maria — DF. A gente pega seu usado na troca e faz a simulação na hora.</p>
       </div>
       <div class="foot-links">
