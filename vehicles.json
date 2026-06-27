@@ -299,5 +299,19 @@
     "ipva_ano": "2026",
     "vendido": false,
     "imagem": "imagens/hyundai-i30-2010.webp"
+  },
+  {
+    "id": "91cbf949-f2de-4508-92d4-7670d96acd8a",
+    "modelo": "VW Golf ( Rodas aro 20)",
+    "versao": "1.6",
+    "ano": "2008",
+    "km": "147000 km",
+    "cambio": "Manual",
+    "combustivel": "Flex",
+    "carroceria": "Hatch",
+    "valor": "R$ 50000",
+    "ipva_pago": true,
+    "vendido": false,
+    "imagem": "imagens/vw-golf-rodas-aro-20-2008.webp"
   }
 ]
