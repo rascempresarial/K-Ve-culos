@@ -82,7 +82,7 @@
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;
     font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
-  .eyebrow::before{content:"";width:34px;height:2px;background:var(--red)}
+  .eyebrow::before{content:none}
   .hero h1{font-size:clamp(38px,4.2vw,62px)}
   .hero h1 em{font-style:normal;color:var(--red);display:inline-block}
   .hero p.lead{font-size:20px;color:var(--muted);max-width:36ch;margin:28px 0 36px;line-height:1.5}
@@ -189,6 +189,9 @@
   footer{border-top:1px solid var(--line);padding:54px 0 40px;background:var(--bg2)}
   .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:40px}
   .foot-top p{color:var(--muted);font-size:15px;max-width:34ch;margin-top:14px}
+  .foot-brand{display:flex;align-items:center;gap:16px;max-width:440px}
+  .foot-brand .logo-img img{height:42px}
+  .foot-brand p{margin-top:0;max-width:22ch}
   .foot-links{display:flex;gap:54px;flex-wrap:wrap}
   .foot-col h5{font-family:'Archivo';font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:.08em;margin-bottom:16px;color:var(--muted)}
   .foot-col a,.foot-col span{display:block;font-size:15px;color:var(--fg);margin-bottom:10px}
@@ -217,6 +220,17 @@
     .wrap{padding:0 20px}
     section.block{padding:64px 0}
     .hero{padding:44px 0 0}
+    /* topo: logo centralizada, sem botão WhatsApp */
+    .nav{justify-content:center}
+    .nav-cta{display:none}
+    /* primeira seção sem imagem no mobile */
+    .hero-media{display:none}
+    /* título em linha única */
+    .hero h1{font-size:4.8vw;white-space:nowrap;line-height:1.12}
+    /* botões lado a lado */
+    .hero-actions{flex-wrap:nowrap;gap:10px}
+    .hero-actions .btn{flex:1;padding:13px 10px;font-size:12.5px;gap:7px}
+    .hero-actions .btn svg{width:15px;height:15px}
     .sec-head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:30px}
     .sec-head p{max-width:none}
     /* carros viram carrossel deslizável */
@@ -258,8 +272,8 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-text reveal">
-      <span class="eyebrow">Seminovos · Santa Maria — DF</span>
-      <h1>Seminovos com<br><em>procedência</em>.</h1>
+      <span class="eyebrow">Seminovos</span>
+      <h1 class="hero-title">Seminovos com <em>procedência</em>.</h1>
       <p class="lead">Seminovos selecionados, revisados e com garantia. A gente pega o seu usado como entrada e faz a simulação do financiamento na hora.</p>
       <div class="hero-actions">
         <a href="https://wa.me/5561993644599?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20seminovos%20da%20k%2B." target="_blank" rel="noopener" class="btn btn-red">
@@ -709,7 +723,7 @@
 
 <!-- ============ DIFERENCIAIS ============ -->
 <section class="diffs" id="diferenciais">
-  <div class="wrap block" style="padding:96px 0">
+  <div class="wrap block" style="padding-top:96px;padding-bottom:96px">
     <div class="sec-head reveal" style="margin-bottom:46px">
       <div>
         <div class="kicker">Por que comprar na k+</div>
@@ -747,7 +761,7 @@
   <div class="wrap lead-grid">
     <div class="lead-copy reveal">
       <div class="kicker" style="font-family:'Archivo';font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px">Fale com a gente</div>
-      <h2>Bora fechar<br>esse <em>negócio?</em></h2>
+      <h2>Vamos tornar esse<br>sonho <em>possível?</em></h2>
       <p>Deixa seu contato que a gente retorna rapidinho com fotos, condições e a simulação do seu financiamento.</p>
       <div class="contact-list">
         <div class="contact-item">
@@ -812,11 +826,18 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div>
+      <div class="foot-brand">
         <a href="#top" class="logo-img" aria-label="k+ Veículos"><img src="imagens/logo-kmais.webp" alt="k+ Veículos Multimarcas"></a>
-        <p>Seminovos com procedência em Santa Maria — DF. A gente pega seu usado na troca e faz a simulação na hora.</p>
+        <p>Seminovos com procedência em Santa Maria — DF.</p>
       </div>
       <div class="foot-links">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="https://wa.me/5561993644599" target="_blank" rel="noopener">(61) 99364-4599</a>
+          <a href="https://wa.me/5561995969228" target="_blank" rel="noopener">(61) 99596-9228</a>
+          <a href="https://wa.me/5561983150771" target="_blank" rel="noopener">(61) 98315-0771</a>
+          <a href="https://instagram.com/kve_iculos" target="_blank" rel="noopener">@kve_iculos</a>
+        </div>
         <div class="foot-col">
           <h5>Navegar</h5>
           <a href="#estoque">Estoque</a>
@@ -824,11 +845,7 @@
           <a href="#contato">Contato</a>
         </div>
         <div class="foot-col">
-          <h5>Contato</h5>
-          <a href="https://wa.me/5561993644599" target="_blank" rel="noopener">(61) 99364-4599</a>
-          <a href="https://wa.me/5561995969228" target="_blank" rel="noopener">(61) 99596-9228</a>
-          <a href="https://wa.me/5561983150771" target="_blank" rel="noopener">(61) 98315-0771</a>
-          <a href="https://instagram.com/kve_iculos" target="_blank" rel="noopener">@kve_iculos</a>
+          <h5>Localização</h5>
           <span>Santa Maria — DF</span>
         </div>
       </div>
@@ -836,7 +853,6 @@
     <div class="foot-bottom">
       <span>© 2026 k+ Veículos. Todos os direitos reservados.</span>
       <span>Criado por <a href="https://rascdsgn.com.br" target="_blank" rel="noopener" style="color:var(--muted);font-weight:600">rascdsgn.com.br</a></span>
-      <span>Fotos e valores reais · consulte disponibilidade.</span>
     </div>
   </div>
 </footer>
