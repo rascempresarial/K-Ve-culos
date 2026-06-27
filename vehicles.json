@@ -284,5 +284,20 @@
     "ipva_pago": false,
     "vendido": false,
     "imagem": "imagens/vw-voyage-2019.webp"
+  },
+  {
+    "id": "a54f8161-2f0a-4c1b-83dc-56943621aa01",
+    "modelo": "Hyundai i30",
+    "versao": "2.0",
+    "ano": "2010",
+    "km": "166000 km",
+    "cambio": "Manual",
+    "combustivel": "Gasolina",
+    "carroceria": "Hatch",
+    "valor": "R$ 42.900",
+    "ipva_pago": true,
+    "ipva_ano": "2026",
+    "vendido": false,
+    "imagem": "imagens/hyundai-i30-2010.webp"
   }
 ]
