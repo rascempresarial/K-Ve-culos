@@ -240,7 +240,7 @@
     "carroceria": "Hatch",
     "valor": "R$ 29.900",
     "ipva_pago": false,
-    "vendido": false,
+    "vendido": true,
     "imagem": "imagens/celta.webp"
   },
   {
