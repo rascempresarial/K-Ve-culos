@@ -270,5 +270,19 @@
     "ipva_ano": "2026",
     "vendido": false,
     "imagem": "imagens/prisma-joy-2019.webp"
+  },
+  {
+    "id": "27f8343d-54d7-48e6-a6fe-54872eb3d3f3",
+    "modelo": "VW Voyage",
+    "versao": "1.6",
+    "ano": "2019",
+    "km": "100.000 km",
+    "cambio": "Manual",
+    "combustivel": "Flex",
+    "carroceria": "Sedan",
+    "valor": "R$ 52.900",
+    "ipva_pago": false,
+    "vendido": false,
+    "imagem": "imagens/vw-voyage-2019.webp"
   }
 ]
