@@ -248,6 +248,37 @@
     form.lead{padding:24px 18px}
     .trust-item{padding:24px 22px}
   }
+
+  /* ---------- galeria / lightbox ---------- */
+  .has-gallery{cursor:pointer}
+  .car-media img{transition:transform .4s ease}
+  .has-gallery:hover img{transform:scale(1.05)}
+  .gallery-badge{position:absolute;bottom:12px;right:12px;display:inline-flex;align-items:center;gap:5px;
+    background:rgba(0,0,0,.72);backdrop-filter:blur(4px);border:1px solid var(--line-2);color:#fff;
+    font-family:'Archivo';font-weight:800;font-size:12px;letter-spacing:.02em;padding:6px 10px;border-radius:7px}
+  .gallery-badge svg{width:14px;height:14px}
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.93);display:none;flex-direction:column;
+    align-items:center;justify-content:center;padding:18px}
+  .lb.open{display:flex}
+  .lb-stage{position:relative;width:100%;max-width:1100px;flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+  .lb-stage img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:10px;user-select:none}
+  .lb-close{position:absolute;top:16px;right:18px;width:46px;height:46px;border-radius:50%;
+    background:rgba(255,255,255,.1);border:1px solid var(--line-2);color:#fff;font-size:20px;cursor:pointer;
+    display:grid;place-items:center;z-index:2;transition:background .2s}
+  .lb-close:hover{background:var(--red)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+    background:rgba(255,255,255,.1);border:1px solid var(--line-2);color:#fff;font-size:26px;cursor:pointer;
+    display:grid;place-items:center;transition:background .2s}
+  .lb-nav:hover{background:var(--red)}
+  .lb-prev{left:4px}.lb-next{right:4px}
+  .lb-count{position:absolute;top:22px;left:22px;color:#fff;font-family:'Archivo';font-weight:700;font-size:14px;
+    background:rgba(0,0,0,.4);padding:6px 13px;border-radius:20px}
+  .lb-thumbs{display:flex;gap:8px;margin-top:14px;overflow-x:auto;max-width:100%;padding:4px;scrollbar-width:none}
+  .lb-thumbs::-webkit-scrollbar{display:none}
+  .lb-thumbs img{width:66px;height:48px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:.5;
+    border:2px solid transparent;flex:none;transition:opacity .2s,border-color .2s}
+  .lb-thumbs img.active{opacity:1;border-color:var(--red)}
+  @media(max-width:640px){.lb-nav{width:42px;height:42px;font-size:22px}.lb-stage img{max-height:66vh}.lb-thumbs img{width:54px;height:40px}}
 </style>
 </head>
 <body>
@@ -327,7 +358,7 @@
     <div class="grid-cars">
       <!-- CARS:START -->
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/fox.webp"]'>
           <img src="imagens/fox.webp" alt="VW Fox Rock in Rio 1.0 2014" loading="lazy">
           <span class="car-badge">2014</span>
         </div>
@@ -343,7 +374,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/palio-2013.webp"]'>
           <img src="imagens/palio-2013.webp" alt="Fiat Palio 1.0 Completo (menos ar) 2013" loading="lazy">
           <span class="car-badge">2013</span>
         </div>
@@ -359,7 +390,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/blazer.webp"]'>
           <img src="imagens/blazer.webp" alt="Chevrolet Blazer 2.4 Flex 2009" loading="lazy">
           <span class="car-badge">2009</span>
         </div>
@@ -375,7 +406,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/bmw-320i.webp"]'>
           <img src="imagens/bmw-320i.webp" alt="BMW 320i 2.0 Turbo 2013" loading="lazy">
           <span class="car-badge">2013</span>
           <div class="sold-flag"><span>Vendido</span></div>
@@ -392,7 +423,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/palio-2016.webp"]'>
           <img src="imagens/palio-2016.webp" alt="Fiat Palio 1.0 Completo 2016" loading="lazy">
           <span class="car-badge">2016</span>
         </div>
@@ -408,7 +439,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/uno.webp"]'>
           <img src="imagens/uno.webp" alt="Fiat Uno 1.0 Básico 2011" loading="lazy">
           <span class="car-badge">2011</span>
         </div>
@@ -424,7 +455,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/hb20.webp"]'>
           <img src="imagens/hb20.webp" alt="Hyundai HB20 1.0 Completo 2015" loading="lazy">
           <span class="car-badge">2015</span>
           <div class="sold-flag"><span>Vendido</span></div>
@@ -441,7 +472,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/civic-2000.webp"]'>
           <img src="imagens/civic-2000.webp" alt="Honda Civic LX 1.6 Automático 2000" loading="lazy">
           <span class="car-badge">2000</span>
         </div>
@@ -457,7 +488,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/amarok.webp"]'>
           <img src="imagens/amarok.webp" alt="VW Amarok 2.0 Biturbo Diesel 2015/2015" loading="lazy">
           <span class="car-badge">2015/2015</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
@@ -474,7 +505,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/golf.webp"]'>
           <img src="imagens/golf.webp" alt="VW Golf 1.0 TSI Turbo 2017" loading="lazy">
           <span class="car-badge">2017</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
@@ -491,7 +522,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/jetta.webp"]'>
           <img src="imagens/jetta.webp" alt="VW Jetta 2.0 Aspirado 2011/2012" loading="lazy">
           <span class="car-badge">2011/2012</span>
         </div>
@@ -507,7 +538,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/hrv.webp"]'>
           <img src="imagens/hrv.webp" alt="Honda HR-V Touring 2025" loading="lazy">
           <span class="car-badge">2025</span>
         </div>
@@ -523,7 +554,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/siena.webp"]'>
           <img src="imagens/siena.webp" alt="Fiat Siena EL 1.4 2015" loading="lazy">
           <span class="car-badge">2015</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2025 pago</span>
@@ -540,7 +571,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/saveiro-cross.webp"]'>
           <img src="imagens/saveiro-cross.webp" alt="VW Saveiro Cross 2020" loading="lazy">
           <span class="car-badge">2020</span>
         </div>
@@ -556,7 +587,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/hilux.webp"]'>
           <img src="imagens/hilux.webp" alt="Toyota Hilux SRX 2.8 Turbo Diesel 2019" loading="lazy">
           <span class="car-badge">2019</span>
         </div>
@@ -572,7 +603,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/uno-sporting.webp"]'>
           <img src="imagens/uno-sporting.webp" alt="Fiat Uno Sporting 1.4 2016/2017" loading="lazy">
           <span class="car-badge">2016/2017</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
@@ -589,7 +620,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/s10.webp"]'>
           <img src="imagens/s10.webp" alt="Chevrolet S10 LTZ 2.8 Diesel 2014/2015" loading="lazy">
           <span class="car-badge">2014/2015</span>
         </div>
@@ -605,7 +636,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/saveiro-2012.webp"]'>
           <img src="imagens/saveiro-2012.webp" alt="VW Saveiro Cross 1.6 8V 2012" loading="lazy">
           <span class="car-badge">2012</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
@@ -622,7 +653,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/celta.webp"]'>
           <img src="imagens/celta.webp" alt="Chevrolet Celta 1.0 2012" loading="lazy">
           <span class="car-badge">2012</span>
           <div class="sold-flag"><span>Vendido</span></div>
@@ -639,7 +670,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/voyage.webp"]'>
           <img src="imagens/voyage.webp" alt="VW Voyage Sportline 1.0 2017" loading="lazy">
           <span class="car-badge">2017</span>
         </div>
@@ -655,7 +686,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/prisma-joy-2019.webp"]'>
           <img src="imagens/prisma-joy-2019.webp" alt="Prisma Joy 1.0 2019" loading="lazy">
           <span class="car-badge">2019</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
@@ -672,7 +703,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/vw-voyage-2019.webp"]'>
           <img src="imagens/vw-voyage-2019.webp" alt="VW Voyage 1.6 2019" loading="lazy">
           <span class="car-badge">2019</span>
         </div>
@@ -688,7 +719,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/hyundai-i30-2010.webp"]'>
           <img src="imagens/hyundai-i30-2010.webp" alt="Hyundai i30 2.0 2010" loading="lazy">
           <span class="car-badge">2010</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA 2026 pago</span>
@@ -705,7 +736,7 @@
       </article>
 
       <article class="car reveal">
-        <div class="car-media">
+        <div class="car-media has-gallery" data-galeria='["imagens/vw-golf-rodas-aro-20-2008.webp"]'>
           <img src="imagens/vw-golf-rodas-aro-20-2008.webp" alt="VW Golf ( Rodas aro 20) 1.6 2008" loading="lazy">
           <span class="car-badge">2008</span>
           <span class="ipva-tag"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>IPVA pago</span>
@@ -871,6 +902,18 @@
   </div>
 </footer>
 
+<!-- lightbox da galeria -->
+<div class="lb" id="lightbox" aria-hidden="true" role="dialog" aria-label="Galeria de fotos">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">✕</button>
+  <span class="lb-count" id="lbCount"></span>
+  <div class="lb-stage">
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Foto anterior">‹</button>
+    <img id="lbImg" src="" alt="Foto do veículo">
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Próxima foto">›</button>
+  </div>
+  <div class="lb-thumbs" id="lbThumbs"></div>
+</div>
+
 <!-- floating whatsapp -->
 <a href="https://wa.me/5561993644599?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20k%2B%20Ve%C3%ADculos." target="_blank" rel="noopener" class="fab" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -903,6 +946,63 @@
     const url='https://wa.me/5561993644599?text='+encodeURIComponent(msg);
     window.open(url,'_blank');
   });
+
+  // ---------- galeria / lightbox ----------
+  (function(){
+    const lb=document.getElementById('lightbox');
+    if(!lb)return;
+    const img=document.getElementById('lbImg');
+    const count=document.getElementById('lbCount');
+    const thumbs=document.getElementById('lbThumbs');
+    const prevBtn=document.getElementById('lbPrev');
+    const nextBtn=document.getElementById('lbNext');
+    let list=[],idx=0;
+    function render(){
+      img.src=list[idx];
+      count.textContent=(idx+1)+' / '+list.length;
+      thumbs.querySelectorAll('img').forEach(function(t,i){t.classList.toggle('active',i===idx);});
+    }
+    function open(images,start){
+      list=images;idx=start||0;
+      thumbs.innerHTML='';
+      const multi=list.length>1;
+      prevBtn.style.display=multi?'':'none';
+      nextBtn.style.display=multi?'':'none';
+      if(multi){
+        list.forEach(function(src,i){
+          const t=document.createElement('img');t.src=src;t.loading='lazy';t.alt='Miniatura '+(i+1);
+          t.addEventListener('click',function(){idx=i;render();});
+          thumbs.appendChild(t);
+        });
+      }
+      render();
+      lb.classList.add('open');lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+    function next(){idx=(idx+1)%list.length;render();}
+    function prev(){idx=(idx-1+list.length)%list.length;render();}
+    document.getElementById('lbClose').addEventListener('click',close);
+    nextBtn.addEventListener('click',next);
+    prevBtn.addEventListener('click',prev);
+    lb.addEventListener('click',function(e){if(e.target===lb)close();});
+    document.addEventListener('keydown',function(e){
+      if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape')close();else if(e.key==='ArrowRight')next();else if(e.key==='ArrowLeft')prev();
+    });
+    let sx=0;
+    lb.addEventListener('touchstart',function(e){sx=e.changedTouches[0].clientX;},{passive:true});
+    lb.addEventListener('touchend',function(e){
+      const dx=e.changedTouches[0].clientX-sx;
+      if(Math.abs(dx)>40&&list.length>1){if(dx<0)next();else prev();}
+    });
+    // abre a galeria ao clicar na foto do card
+    document.addEventListener('click',function(e){
+      const media=e.target.closest('.car-media[data-galeria]');
+      if(!media)return;
+      try{const imgs=JSON.parse(media.getAttribute('data-galeria'));if(imgs&&imgs.length)open(imgs,0);}catch(_){}
+    });
+  })();
 </script>
 </body>
 </html>
