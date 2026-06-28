@@ -192,6 +192,10 @@
   .foot-brand{display:flex;align-items:center;gap:16px;max-width:440px}
   .foot-brand .logo-img img{height:42px}
   .foot-brand p{margin-top:0;max-width:22ch}
+  .foot-banks{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;align-content:start}
+  .foot-banks img{width:54px;height:54px;border-radius:10px;border:1px solid var(--line-2);object-fit:cover;display:block;transition:transform .2s}
+  .foot-banks img:hover{transform:translateY(-2px)}
+  @media(max-width:960px){.foot-banks{order:3;width:100%;justify-items:start}}
   .foot-links{display:flex;gap:54px;flex-wrap:wrap}
   .foot-col h5{font-family:'Archivo';font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:.08em;margin-bottom:16px;color:var(--muted)}
   .foot-col a,.foot-col span{display:block;font-size:15px;color:var(--fg);margin-bottom:10px}
@@ -829,6 +833,16 @@
       <div class="foot-brand">
         <a href="#top" class="logo-img" aria-label="k+ Veículos"><img src="imagens/logo-kmais.webp" alt="k+ Veículos Multimarcas"></a>
         <p>Seminovos com procedência em Santa Maria — DF.</p>
+      </div>
+      <div class="foot-banks" aria-label="Bancos parceiros">
+        <img src="imagens/bancos/santander.webp" alt="Santander" loading="lazy">
+        <img src="imagens/bancos/itau.webp" alt="Itaú" loading="lazy">
+        <img src="imagens/bancos/c6.webp" alt="C6 Bank" loading="lazy">
+        <img src="imagens/bancos/bv.webp" alt="BV" loading="lazy">
+        <img src="imagens/bancos/pan.webp" alt="Banco Pan" loading="lazy">
+        <img src="imagens/bancos/omni.webp" alt="Omni" loading="lazy">
+        <img src="imagens/bancos/creditas.webp" alt="Creditas" loading="lazy">
+        <img src="imagens/bancos/daycoval.webp" alt="Daycoval" loading="lazy">
       </div>
       <div class="foot-links">
         <div class="foot-col">
